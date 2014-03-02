@@ -6,5 +6,5 @@ import (
 )
 
 func TestSuite(t *testing.T) {
-	RunSpecs(t, "Ranodmizer Suite")
+	RunSpecs(t, "Randomizer Suite")
 }

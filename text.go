@@ -46,8 +46,6 @@ var words []string = []string{
 	"sapiente", "delectus", "ut", "aut", "reiciendis", "voluptatibus",
 	"maiores", "doloribus", "asperiores", "repellat"}
 
-// FUNCTIONS ======================================================================================
-
 func Word() string {
 	return words[rand.Intn(len(words))]
 }

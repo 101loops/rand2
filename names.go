@@ -16,8 +16,6 @@ const (
 	Large int = 1
 )
 
-// FUNCTIONS ======================================================================================
-
 func RandFirstName(gender int) string {
 	var name = ""
 	switch gender {
@@ -49,8 +47,6 @@ func RandEmail() string {
 func RandomEntry(source []string) string {
 	return source[seedAndReturnRandom(len(source))]
 }
-
-// HELPERS ========================================================================================
 
 func seedAndReturnRandom(n int) int {
 	return rand.Intn(n)
