@@ -1,7 +1,7 @@
 package randomizer
 
 import (
-	. "101loops/bdd"
+	. "github.com/101loops/bdd"
 	"testing"
 )
 
