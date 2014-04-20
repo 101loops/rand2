@@ -46,59 +46,60 @@ var words []string = []string{
 	"sapiente", "delectus", "ut", "aut", "reiciendis", "voluptatibus",
 	"maiores", "doloribus", "asperiores", "repellat"}
 
+// Word returns a random word.
 func Word() string {
 	return words[rand.Intn(len(words))]
 }
 
-func Words(numWords int) (words string) {
-	if numWords < 1 {
+// Words returns a string containing randoms words.
+// The passed-in count controls how many words are used.
+func Words(count int) (words string) {
+	if count < 1 {
 		return ""
 	}
 	words = Word()
-	for i := 1; i < numWords; i++ {
+	for i := 1; i < count; i++ {
 		words = words + " " + Word()
 	}
 	return
 }
 
-func Sentence(numWords int) (sentence string) {
-	if numWords < 1 {
+// Sentence returns a string with multiple words, formatted like an English sentence.
+// The passed-in count controls how many words are used.
+func Sentence(count int) (sentence string) {
+	if count < 1 {
 		return ""
 	}
 	sentence = strings.Title(Word())
-	for i := 1; i < numWords; i++ {
+	for i := 1; i < count; i++ {
 		sentence = sentence + " " + Word()
 	}
 	sentence = strings.TrimSpace(sentence) + "."
 	return
 }
 
-func Sentences(numSentences, numWords int) (sentences string) {
-	if numSentences < 1 {
+// Sentences returns a string of multiple sentences.
+// The passed-in count controls the number of sentences,
+// words defines how many words per sentence are used.
+func Sentences(count, words int) (sentences string) {
+	if count < 1 {
 		return ""
 	}
-	sentences = Sentence(numWords)
-	for i := 1; i < numSentences; i++ {
-		sentences = sentences + " " + Sentence(numWords)
+	sentences = Sentence(words)
+	for i := 1; i < count; i++ {
+		sentences = sentences + " " + Sentence(words)
 	}
 	return
 }
 
-func Paragraph(numSentences, numWords int) (paragraph string) {
-	if numSentences < 1 {
+// Paragraphs returns a string with multiple sentences grouped in paragraphs.
+func Paragraphs(count, sentences, words int) (paragraphs string) {
+	if count < 1 {
 		return ""
 	}
-	paragraph = Sentences(numSentences, numWords)
-	return
-}
-
-func Paragraphs(numParagraphs, numSentences, numWords int) (paragraphs string) {
-	if numParagraphs < 1 {
-		return ""
-	}
-	paragraphs = Paragraph(numSentences, numWords)
-	for i := 1; i < numParagraphs; i++ {
-		paragraphs = paragraphs + "\n\n" + Paragraph(numSentences, numWords)
+	paragraphs = Sentences(sentences, words)
+	for i := 1; i < count; i++ {
+		paragraphs = paragraphs + "\n\n" + Sentences(sentences, words)
 	}
 	return
 }

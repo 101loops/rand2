@@ -1,9 +1,6 @@
 package randomizer
 
-import (
-	"math/rand"
-	"strings"
-)
+import "math/rand"
 
 const (
 	Male         int = 0
@@ -16,44 +13,41 @@ const (
 	Large int = 1
 )
 
-func RandFirstName(gender int) string {
-	var name = ""
-	switch gender {
-	case Male:
-		name = RandomEntry(firstNamesMale)
-		break
-	case Female:
-		name = RandomEntry(firstNamesFemale)
-		break
-	default:
-		name = RandFirstName(seedAndReturnRandom(2))
-		break
+// FirstName returns a random first name.
+// The optional passed-in gender decides if it is male or female.
+func FirstName(gender ... int) string {
+	if len(gender) == 0 {
+		return FirstName(rand.Intn(2))
 	}
-	return name
+
+	switch gender[0] {
+	case Male:
+		return Element(firstNamesMale)
+	case Female:
+		return Element(firstNamesFemale)
+	default:
+		return FirstName(rand.Intn(2))
+	}
 }
 
-func RandLastName() string {
-	return RandomEntry(lastNames)
+// LastName returns a random last name.
+func LastName() string {
+	return Element(lastNames)
 }
 
-func RandFullName(gender int) string {
-	return RandFirstName(gender) + " " + RandLastName()
+// FullName returns a random full name.
+// The optional passed-in gender decides if the first name is male or female.
+func FullName(gender ... int) string {
+	return FirstName(gender...) + " " + LastName()
 }
 
-func RandEmail() string {
-	return strings.ToLower(RandFirstName(RandomGender)+RandLastName()) + "@" + RandomEntry(domains)
-}
-
-func RandomEntry(source []string) string {
-	return source[seedAndReturnRandom(len(source))]
-}
-
-func seedAndReturnRandom(n int) int {
-	return rand.Intn(n)
+// Domain returns a random web domain (e.g. "test.com").
+func Domain() string {
+	return Element(domains)
 }
 
 var domains = []string{
-	"test.com", "example.com",
+	"test.com", "example.com", "acme.com", "gmail.com", "yahoo.com",
 }
 
 var streetTypes = []string{
