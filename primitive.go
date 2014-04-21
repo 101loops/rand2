@@ -1,4 +1,4 @@
-package randomizer
+package rand2
 
 import (
 	"github.com/nu7hatch/gouuid"

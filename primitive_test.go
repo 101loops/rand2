@@ -1,4 +1,4 @@
-package randomizer
+package rand2
 
 import (
 	. "github.com/101loops/bdd"

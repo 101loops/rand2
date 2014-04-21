@@ -1,4 +1,4 @@
-package randomizer
+package rand2
 
 // Source: https://github.com/4eek/gofaker/blob/master/lorem/lorem.go
 
