@@ -1,4 +1,4 @@
-package rand2
+package randgen
 
 import (
 	. "github.com/101loops/bdd"
