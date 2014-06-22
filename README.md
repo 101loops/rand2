@@ -10,7 +10,7 @@ This Go package adds useful generators for random values - including:
 ## Install
 ```bash
 go get github.com/101loops/randgen
-``
+```
 
 ## Documentation
 [godoc.org](http://godoc.org/github.com/101loops/randgen)
