@@ -6,14 +6,17 @@ This Go package adds useful generators for random values - including:
 - random first and last names as well as email address
 - random words, sentences and paragraphs
 
-### Installation
-`go get github.com/101loops/randgen`
 
-### Documentation
+## Install
+```bash
+go get github.com/101loops/randgen
+``
+
+## Documentation
 [godoc.org](http://godoc.org/github.com/101loops/randgen)
 
-### Credit
+## Credit
 Some code from https://github.com/4eek/gofaker.
 
-### License
+## License
 MIT (see LICENSE).
