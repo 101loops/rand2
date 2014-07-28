@@ -15,7 +15,7 @@ const (
 
 // FirstName returns a random first name.
 // The optional passed-in gender decides if it is male or female.
-func FirstName(gender ... int) string {
+func FirstName(gender ...int) string {
 	if len(gender) == 0 {
 		return FirstName(rand.Intn(2))
 	}
@@ -37,7 +37,7 @@ func LastName() string {
 
 // FullName returns a random full name.
 // The optional passed-in gender decides if the first name is male or female.
-func FullName(gender ... int) string {
+func FullName(gender ...int) string {
 	return FirstName(gender...) + " " + LastName()
 }
 

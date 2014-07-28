@@ -1,9 +1,10 @@
 package randgen
 
 import (
-	"github.com/nu7hatch/gouuid"
 	"math/rand"
 	"time"
+
+	"github.com/nu7hatch/gouuid"
 )
 
 var (
